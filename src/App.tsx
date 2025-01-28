@@ -1,9 +1,17 @@
+import styles from "./app.module.css";
+import Header from "./components/Header";
+
 function App() {
+  function handleRestartGame() {
+    alert("Jogo sendo reiniciado");
+  }
+
   return (
-    <>
-      <h1>Alow React</h1>
-      <button>clique aqui</button>
-    </>
+    <section className={styles.container}>
+      <main>
+        <Header current={5} max={10} onRestart={handleRestartGame} />
+      </main>
+    </section>
   );
 }
 
