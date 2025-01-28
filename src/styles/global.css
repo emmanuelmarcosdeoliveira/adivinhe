@@ -1,0 +1,25 @@
+:root {
+  --bgColor: #f5f5fa;
+  --font-default: "Noto Sans", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bgColor);
+  font-family: var(--font-default);
+  font-optical-sizing: auto;
+  font-size: 1rem;
+}
+
+button {
+  cursor: pointer;
+  transition: filter 0.2s;
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
