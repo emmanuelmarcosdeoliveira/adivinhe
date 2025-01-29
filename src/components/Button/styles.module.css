@@ -1,0 +1,10 @@
+.button {
+  height: 2.87rem;
+  border-radius: 0.43rem;
+  background-color: var(--palpiteBgColor);
+  border: 2px solid var(--destaqColor);
+  color: var(--tertiaryColor);
+  padding: 0 0.87rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
