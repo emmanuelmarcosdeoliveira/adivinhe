@@ -6,6 +6,13 @@
   --tertiaryColor: #ebebfc;
   --destaqColor: #4f4fb9;
   --palpiteBgColor: #6363db;
+  --borderColor: #c3c3c3;
+  --colorLetters: #32325f;
+  --colorLetterCorrect: #03ab4f;
+  --BgColorCorrect: #e1f5ec;
+  --colorLetterWrong: #691b0a;
+  --bgcolorLetterWrong: #ffcf62;
+
   --font-default: "Noto Sans", serif;
 }
 

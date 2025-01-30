@@ -3,6 +3,7 @@ import Button from "./components/Button";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import Letter from "./components/Letter";
+import LettersUser from "./components/LettersUsed";
 import Tip from "./components/Tip";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Input autoFocus maxLength={1} placeholder="?" />
           <Button title="Confirmar" />
         </div>
+        <LettersUser />
       </main>
     </section>
   );

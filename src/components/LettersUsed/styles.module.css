@@ -1,0 +1,16 @@
+.lettersUsed {
+  width: 100%;
+  margin-top: 3.25rem;
+  border-top: 1px solid var(--borderColor);
+  & h5 {
+    color: var(--colorLetters);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0.75rem 0;
+  }
+  & div {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+}
