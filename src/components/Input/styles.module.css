@@ -1,0 +1,14 @@
+.input {
+  width: 2.87rem;
+  height: 2.87rem;
+  border-radius: 0.43rem;
+  background-color: var(--tertiaryColor);
+  border: 2px solid var(--palpiteBgColor);
+  text-transform: uppercase;
+  color: var(--palpiteBgColor);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Noto Sans", serif;
+  outline: none;
+}
