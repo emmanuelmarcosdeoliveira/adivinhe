@@ -13,6 +13,7 @@ function App() {
   const [challenge, setChalenge] = useState<Challenge | null>(null);
   const [attempts, setAttempts] = useState(0);
   const [letter, setLetter] = useState("");
+  const [score, setScore] = useState(0);
 
   function startGame() {
     const index = Math.floor(Math.random() * WORDS.length);
@@ -36,9 +37,23 @@ function App() {
     const value = letter.toUpperCase();
     const exist = letterUsed.find((used) => used.value.toUpperCase() === value);
     if (exist) {
-      return alert("Voce já utilizou está letra" + value);
+      return alert("Voce já utilizou está letra " + value);
     }
-    setLetterUsed((prevState) => [...prevState, { value, correct: false }]);
+
+    const hits = challenge.word
+      .toUpperCase()
+      .split("")
+      .filter((char) => char === value).length;
+    //console.log(hits);
+
+    const correct = hits > 0;
+    console.log(correct);
+
+    const currentScore = score + hits;
+    console.log(currentScore);
+
+    setLetterUsed((prevState) => [...prevState, { value, correct }]);
+    setScore(currentScore);
     setLetter("");
   }
 
@@ -55,7 +70,7 @@ function App() {
       <main>
         <Header current={attempts} max={10} onRestart={handleRestartGame} />
 
-        <Tip tip="Uma das linguagem de programação dinâmica mais utilizadas" />
+        <Tip tip={challenge.tip} />
         <div className={styles.world}>
           {challenge.word.split("").map(() => (
             <Letter value="" />
