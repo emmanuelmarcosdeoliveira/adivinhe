@@ -11,7 +11,6 @@ import { Challenge, WORDS } from "./utils/words";
 function App() {
   const [letterUsed, setLetterUsed] = useState<LetterUsedProps[]>([]);
   const [challenge, setChalenge] = useState<Challenge | null>(null);
-  const [attempts, setAttempts] = useState(0);
   const [letter, setLetter] = useState("");
   const [score, setScore] = useState(0);
 
@@ -19,8 +18,9 @@ function App() {
     const index = Math.floor(Math.random() * WORDS.length);
     const randonWord = WORDS[index];
     setChalenge(randonWord);
-    setAttempts(0);
+    setScore(0);
     setLetter("");
+    setLetterUsed([]);
   }
 
   function handleRestartGame() {
@@ -68,13 +68,22 @@ function App() {
   return (
     <section className={styles.container}>
       <main>
-        <Header current={attempts} max={10} onRestart={handleRestartGame} />
+        <Header current={score} max={10} onRestart={handleRestartGame} />
 
         <Tip tip={challenge.tip} />
         <div className={styles.world}>
-          {challenge.word.split("").map(() => (
-            <Letter value="" />
-          ))}
+          {challenge.word.split("").map((letter, index) => {
+            const leterUsed = letterUsed.find(
+              (used) => used.value.toUpperCase() === letter.toUpperCase()
+            );
+            return (
+              <Letter
+                key={index}
+                value={leterUsed?.value}
+                color={leterUsed?.correct ? "correct" : "default"}
+              />
+            );
+          })}
         </div>
         <h4>Palpite</h4>
         <div className={styles.guess}>
