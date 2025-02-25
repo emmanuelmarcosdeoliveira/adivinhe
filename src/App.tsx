@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./app.module.css";
 import Button from "./components/Button";
 import Header from "./components/Header";
@@ -25,7 +25,12 @@ function App() {
   }
 
   function handleRestartGame() {
-    alert("Jogo sendo reiniciado");
+    const isConfirmed = window.confirm(
+      "Tem certeza que quer reiniciar o Jogo ?"
+    );
+    if (isConfirmed) {
+      startGame();
+    }
   }
 
   function handleConfirm() {
@@ -38,6 +43,7 @@ function App() {
     const value = letter.toUpperCase();
     const exist = letterUsed.find((used) => used.value.toUpperCase() === value);
     if (exist) {
+      setLetter("");
       return alert("Voce já utilizou está letra " + value);
     }
 
@@ -58,9 +64,29 @@ function App() {
     setLetter("");
   }
 
+  const endGame = useCallback((message: string) => {
+    alert(message);
+    startGame();
+  }, []);
+
   useEffect(() => {
     startGame();
   }, []);
+
+  useEffect(() => {
+    if (!challenge) {
+      return;
+    }
+    setTimeout(() => {
+      if (score === challenge.word.length) {
+        return endGame("Parabéns, você descobriu a palavra");
+      }
+      const attemptLimit = challenge.word.length + ATTEMPTS_MARGIN;
+      if (letterUsed.length === attemptLimit) {
+        return endGame("Que pena você usou todas as tentativas ");
+      }
+    }, 200);
+  }, [score, letterUsed.length, challenge, endGame]);
 
   if (!challenge) {
     return null;
