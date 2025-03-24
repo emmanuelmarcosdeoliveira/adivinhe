@@ -9,7 +9,9 @@
 
 <!-- Badges do Projeto -->
 
-![Static Badge](https://img.shields.io/badge/--path?style=flat&logo=react&logoColor=%23FFF&logoSize=auto&label=React&color=03c0e2)<br>
+<!-- ![Static Badge](https://img.shields.io/badge/--path?style=flat&logo=react&logoColor=%23FFF&logoSize=auto&label=React&color=03c0e2) -->
+
+<br>
 
 # 🧮 Adivinhe
 
