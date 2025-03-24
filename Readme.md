@@ -69,6 +69,7 @@ fazer a lógica do game e junto aos `hooks` do **React**
 - [x] - campo de inserção de letras para descobrir a palavra.
 
  <br>
+
 > [!TIP]
 >
 > Baixe o Projeto em seu Computador e veja como ficou.
